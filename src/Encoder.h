@@ -18,6 +18,8 @@ public:
 			TIM_TypeDef * Tim, uint8_t Af_Pin, uint8_t Af_Pin2,
 			uint8_t Af);
 	uint32_t position();
+private:
+	TIM_TypeDef * Encoder_Tim;
 };
 
 #endif /* ENCONDER_H_ */

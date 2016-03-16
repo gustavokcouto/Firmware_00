@@ -34,7 +34,7 @@ Encoder::Encoder( GPIO_TypeDef* Port1, GPIO_TypeDef* Port2,
 			RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM5, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 
 	GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -56,9 +56,10 @@ Encoder::Encoder( GPIO_TypeDef* Port1, GPIO_TypeDef* Port2,
 	TIM_Cmd(Tim, ENABLE);
 
 	TIM_SetCounter(Tim, (uint32_t) 16000);
+	Encoder_Tim = Tim;
 };
 
 uint32_t Encoder::position(){
-	return TIM_GetCounter(TIM2);
+	return TIM_GetCounter(TIM4);
 };
 

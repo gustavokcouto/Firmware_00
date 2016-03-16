@@ -16,6 +16,7 @@ public:
 	void set_DutyCycle(uint16_t duty_cycle1);
 private:
 	int8_t PWM_Channel;
+	TIM_TypeDef * PWM_Tim;
 };
 
 #endif /* PWM_H_ */

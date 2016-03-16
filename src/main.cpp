@@ -5,29 +5,40 @@
 #include "Encoder.h"
 #include "TimerTime.h"
 #include "Motor.h"
+#include "pins.h"
 
 uint32_t TimingDelay;
 
 void Delay (uint32_t nTime);
 
 void TimingDelay_Decrement(void);
-
+extern "C" {
 void SysTick_Handler(void);
+}
 uint32_t position;
 int main(void)
 {
-  Pwm M0_B_H(GPIOE, GPIO_Pin_14, TIM1, GPIO_PinSource14, GPIO_AF_TIM1, (uint8_t) 4);
-  Pwm M0_A_H(GPIOA, GPIO_Pin_8, TIM1, GPIO_PinSource8, GPIO_AF_TIM1, 1);
-  GPIO M0_A_L(GPIOE, GPIO_Pin_0);
-  GPIO M0_B_L(GPIOE, GPIO_Pin_1);
-  //M0_A_L.Set();
-  //M0_B_H.set_DutyCycle(300);
-  Encoder M0_Enc(GPIOA, GPIOB, GPIO_Pin_15, GPIO_Pin_3, TIM2, GPIO_PinSource15, GPIO_PinSource3, GPIO_AF_TIM2);
-  Motor M0(&M0_A_H, &M0_A_L, &M0_B_H, &M0_B_L, &M0_Enc);
-  M0.Answer(-600);
+  int16_t i = -1000;
+  SysTick_Config(SystemCoreClock / 1000);
+  Pwm M2_A_H(MAH_Port[2], MAH_Pin[2], MAH_Tim[2], MAH_Af_Pin[2], MAH_Af[2], MAH_Ch[2]);
+  GPIO M2_A_L(MAL_Port[2], MAL_Pin[2]);
+  Pwm M2_B_H(MBH_Port[2], MBH_Pin[2], MBH_Tim[2], MBH_Af_Pin[2], MBH_Af[2], MBH_Ch[2]);
+  GPIO M2_B_L(MBL_Port[2], MBL_Pin[2]);
+  Encoder M2_Enc(M_EncA_Port[2], M_EncB_Port[2], M_EncA_Pin[2], M_EncB_Pin[2], M_Enc_Tim[2], M_EncA_Af_Pin[2], M_EncB_Af_Pin[2], M_Enc_Af[2]);
+  Motor M2(&M2_A_H, &M2_A_L, &M2_B_H, &M2_B_L, &M2_Enc);
+  Delay(100);
+  //M2.Control_Pos(2500);
+  //M2.Answer((int16_t)600);
+  //M2_B_H.set_DutyCycle(600);
+  //M2_A_L.Set();
+  //M2_A_H.set_DutyCycle(0);
+  //M2_B_L.Reset();
+  M2.Answer(-400);
   while (1)
   {
-	//  M0.Control_Pos(300);
+	  M2.Control_Pos(2000);
+	  //Delay(10);
+	  //i = i+10;
   }
 }
 
@@ -46,9 +57,11 @@ void TimingDelay_Decrement(void)
     TimingDelay--;
   }
 }
+extern "C" {
 void SysTick_Handler(void)
 {
   TimingDelay_Decrement();
+}
 }
 
 /*

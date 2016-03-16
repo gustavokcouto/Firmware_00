@@ -23,8 +23,9 @@ void Motor::Control_Pos(uint32_t hold_position){
 	uint32_t position;
 	int16_t answer;
 	position = Motor_Enc->position();
-	answer = Pos_Calc_Answer(position, hold_position);
-	Answer(answer);
+	answer = this->Pos_Calc_Answer(position, hold_position);
+	this->Answer(answer);
+	return;
 };
 void Motor::Control_Speed(int16_t hold_speed){
 
@@ -39,8 +40,8 @@ void Motor::Answer(int16_t answer)
 			answer=1000;
 		}
 		Motor_A_Low->Reset();
-		Motor_B_High->set_DutyCycle(1000);
-		Motor_A_High->set_DutyCycle(1000-answer);
+		Motor_B_High->set_DutyCycle(0);
+		Motor_A_High->set_DutyCycle(answer);
 		Motor_B_Low->Set();
 	}
 	else
@@ -51,10 +52,11 @@ void Motor::Answer(int16_t answer)
 			answer=1000;
 		}
 		Motor_B_Low->Reset();
-		Motor_A_High->set_DutyCycle(1000);
-		Motor_B_High->set_DutyCycle(1000-answer);
+		Motor_A_High->set_DutyCycle(0);
+		Motor_B_High->set_DutyCycle(answer);
 		Motor_A_Low->Set();
 	}
+	return;
 }
 int16_t Motor::Pos_Calc_Answer(uint32_t position, uint32_t hold_position)
 {

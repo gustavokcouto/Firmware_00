@@ -31,8 +31,10 @@ GPIO::GPIO(GPIO_TypeDef* Port, uint16_t Pin) {
 }
 void GPIO::Set(){
 	GPIO_SetBits(GPIO_Port, GPIO_Pin);
+	return;
 }
 void GPIO::Reset(){
 	GPIO_ResetBits(GPIO_Port, GPIO_Pin);
+	return;
 }
 

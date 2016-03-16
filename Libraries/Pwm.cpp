@@ -33,20 +33,21 @@ Pwm::Pwm(GPIO_TypeDef* Port, uint32_t Pin, TIM_TypeDef * Tim, uint8_t Af_Pin, ui
 	GPIO_Init(Port, &GPIO_InitStructure); //onias
 	GPIO_PinAFConfig(Port, Af_Pin, Af);
 
-	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStruct;
-	TIM_TimeBaseInitStruct.TIM_ClockDivision = TIM_CKD_DIV1;
-	TIM_TimeBaseInitStruct.TIM_CounterMode = TIM_CounterMode_Up;
-	TIM_TimeBaseInitStruct.TIM_Period = 1000;
-	TIM_TimeBaseInitStruct.TIM_Prescaler = 40;
+	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 
-	TIM_TimeBaseInit(Tim, &TIM_TimeBaseInitStruct);
+	TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1;
+	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up;
+	TIM_TimeBaseStructure.TIM_Prescaler=(SystemCoreClock/168000000)-1;
+	TIM_TimeBaseStructure.TIM_Period=168000000/168000;
+
+	TIM_TimeBaseInit(Tim, &TIM_TimeBaseStructure);
 
 	TIM_OCInitTypeDef TIM_OCInitStructure;
 	TIM_OCInitStructure.TIM_OCMode=TIM_OCMode_PWM1;
 	TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Enable;
 	TIM_OCInitStructure.TIM_OutputNState=TIM_OutputNState_Disable;
-	TIM_OCInitStructure.TIM_Pulse=1000;
-	TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_High;
+	TIM_OCInitStructure.TIM_Pulse=0;
+	TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_Low;
 	TIM_OCInitStructure.TIM_OCIdleState=TIM_OCIdleState_Set;
 
 	if(Channel==1){
@@ -70,16 +71,18 @@ Pwm::Pwm(GPIO_TypeDef* Port, uint32_t Pin, TIM_TypeDef * Tim, uint8_t Af_Pin, ui
 
 	TIM_Cmd(Tim, ENABLE);
 	TIM_CtrlPWMOutputs(Tim,ENABLE);
+	PWM_Tim = Tim;
 	PWM_Channel = Channel;
 };
 
 void Pwm::set_DutyCycle(uint16_t duty_cycle1){
 	if(PWM_Channel == 1)
-		TIM_SetCompare1(TIM1, duty_cycle1);
+		TIM_SetCompare1(PWM_Tim, duty_cycle1);
 	if(PWM_Channel == 2)
-		TIM_SetCompare2(TIM1, duty_cycle1);
+		TIM_SetCompare2(PWM_Tim, duty_cycle1);
 	if(PWM_Channel == 3)
-		TIM_SetCompare3(TIM1, duty_cycle1);
+		TIM_SetCompare3(PWM_Tim, duty_cycle1);
 	if(PWM_Channel == 4)
-		TIM_SetCompare4(TIM1, duty_cycle1);
+		TIM_SetCompare4(PWM_Tim, duty_cycle1);
+	return;
 };

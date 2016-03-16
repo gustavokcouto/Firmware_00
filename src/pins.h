@@ -47,7 +47,7 @@ uint8_t MAH_Ch[] = {1, 2, 1, 3};
 uint8_t MBH_Ch[] = {4, 3, 2, 4};
 
 uint8_t MAH_Af[]= {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM8, GPIO_AF_TIM8};
-uint8_t MAH_Af[]= {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM8, GPIO_AF_TIM8};
+uint8_t MBH_Af[]= {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM8, GPIO_AF_TIM8};
 
 uint8_t MAH_Af_Pin[] = {GPIO_PinSource8, GPIO_PinSource0, GPIO_PinSource6, GPIO_PinSource8};
 uint8_t MBH_Af_Pin[] = {GPIO_PinSource14, GPIO_PinSource1, GPIO_PinSource7, GPIO_PinSource9};
@@ -58,11 +58,9 @@ GPIO_TypeDef* M_EncB_Port[] = {GPIOB, GPIOB, GPIOB, GPIOA};
 uint32_t M_EncA_Pin[] = {GPIO_Pin_15, GPIO_Pin_4, GPIO_Pin_6, GPIO_Pin_0};
 uint32_t M_EncB_Pin[] = {GPIO_Pin_3, GPIO_Pin_5, GPIO_Pin_7, GPIO_Pin_1};
 
-TIM_TypeDef * M_EncA_Tim[] = {TIM2, TIM3, TIM4, TIM5};
-TIM_TypeDef * M_EncB_Tim[] = {TIM2, TIM3, TIM4, TIM5};
+TIM_TypeDef * M_Enc_Tim[] = {TIM2, TIM3, TIM4, TIM5};
 
-uint8_t M_EncA_Af[]= {GPIO_AF_TIM2, GPIO_AF_TIM3, GPIO_AF_TIM4, GPIO_AF_TIM5};
-uint8_t M_EncB_Af[]= {GPIO_AF_TIM2, GPIO_AF_TIM3, GPIO_AF_TIM4, GPIO_AF_TIM5};
+uint8_t M_Enc_Af[]= {GPIO_AF_TIM2, GPIO_AF_TIM3, GPIO_AF_TIM4, GPIO_AF_TIM5};
 
 uint8_t M_EncA_Af_Pin[] = {GPIO_PinSource15, GPIO_PinSource4, GPIO_PinSource6, GPIO_PinSource0};
 uint8_t M_EncB_Af_Pin[] = {GPIO_PinSource3, GPIO_PinSource5, GPIO_PinSource7, GPIO_PinSource1};
