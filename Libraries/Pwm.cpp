@@ -6,7 +6,7 @@
  */
 
 #include "Pwm.h"
-Pwm::Pwm(GPIO_TypeDef* Port, uint32_t Pin, TIM_TypeDef * Tim, uint8_t Af_Pin, uint8_t Af, uint8_t Channel)
+Pwm::Pwm(GPIO_TypeDef* Port, uint32_t Pin, TIM_TypeDef * Tim, uint8_t Af_Pin, uint8_t Af, uint8_t Channel, bool nState)
 {
 	if(Port == GPIOA)
 		RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
@@ -41,15 +41,22 @@ Pwm::Pwm(GPIO_TypeDef* Port, uint32_t Pin, TIM_TypeDef * Tim, uint8_t Af_Pin, ui
 	TIM_TimeBaseStructure.TIM_Period=168000000/168000;
 
 	TIM_TimeBaseInit(Tim, &TIM_TimeBaseStructure);
-
 	TIM_OCInitTypeDef TIM_OCInitStructure;
 	TIM_OCInitStructure.TIM_OCMode=TIM_OCMode_PWM1;
-	TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Enable;
-	TIM_OCInitStructure.TIM_OutputNState=TIM_OutputNState_Disable;
-	TIM_OCInitStructure.TIM_Pulse=0;
-	TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_Low;
-	TIM_OCInitStructure.TIM_OCIdleState=TIM_OCIdleState_Set;
-
+	if(!nState){
+		TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Enable;
+		TIM_OCInitStructure.TIM_OutputNState=TIM_OutputNState_Disable;
+		TIM_OCInitStructure.TIM_Pulse=0;
+		TIM_OCInitStructure.TIM_OCPolarity=TIM_OCPolarity_Low;
+		TIM_OCInitStructure.TIM_OCIdleState=TIM_OCIdleState_Set;
+	}
+	else{
+		TIM_OCInitStructure.TIM_OutputState=TIM_OutputState_Disable;
+		TIM_OCInitStructure.TIM_OutputNState=TIM_OutputNState_Enable;
+		TIM_OCInitStructure.TIM_Pulse =0;
+		TIM_OCInitStructure.TIM_OCNIdleState=TIM_OCNPolarity_Low;
+		TIM_OCInitStructure.TIM_OCNPolarity ==TIM_OCNIdleState_Set;
+	}
 	if(Channel==1){
 		TIM_OC1Init(Tim, &TIM_OCInitStructure);
 		TIM_OC1PreloadConfig(Tim, TIM_OCPreload_Enable);

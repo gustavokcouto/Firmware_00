@@ -46,6 +46,9 @@ TIM_TypeDef * MBH_Tim[] = {TIM1, TIM1, TIM8, TIM8};
 uint8_t MAH_Ch[] = {1, 2, 1, 3};
 uint8_t MBH_Ch[] = {4, 3, 2, 4};
 
+bool MAH_nState[] = {false, true, false, false};
+bool MBH_nState[] = {false, true, false, false};
+
 uint8_t MAH_Af[]= {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM8, GPIO_AF_TIM8};
 uint8_t MBH_Af[]= {GPIO_AF_TIM1, GPIO_AF_TIM1, GPIO_AF_TIM8, GPIO_AF_TIM8};
 

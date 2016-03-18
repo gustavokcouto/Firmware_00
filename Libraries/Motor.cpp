@@ -35,9 +35,9 @@ void Motor::Answer(int16_t answer)
 {
 	if (answer > 0)
 	{
-		if (answer>1000)
+		if (answer>600)
 		{
-			answer=1000;
+			answer=600;
 		}
 		Motor_A_Low->Reset();
 		Motor_B_High->set_DutyCycle(0);
@@ -47,9 +47,9 @@ void Motor::Answer(int16_t answer)
 	else
 	{
 		answer=-answer;
-		if(answer>1000)
+		if(answer>600)
 		{
-			answer=1000;
+			answer=600;
 		}
 		Motor_B_Low->Reset();
 		Motor_A_High->set_DutyCycle(0);
