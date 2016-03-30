@@ -686,87 +686,87 @@ int main(void)
   Delay(10);
  8000488:	200a      	movs	r0, #10
  800048a:	f000 f8b7 	bl	80005fc <_Z5Delaym>
-  Pwm M2_A_H(MAH_Port[2], MAH_Pin[2], MAH_Tim[2], MAH_Af_Pin[2], MAH_Af[2], MAH_Ch[2], MAH_nState[2]);
+  Pwm M0_A_H(MAH_Port[0], MAH_Pin[0], MAH_Tim[0], MAH_Af_Pin[0], MAH_Af[0], MAH_Ch[0], MAH_nState[0]);
  800048e:	4b40      	ldr	r3, [pc, #256]	; (8000590 <main+0x128>)
- 8000490:	6899      	ldr	r1, [r3, #8]
+ 8000490:	6819      	ldr	r1, [r3, #0]
  8000492:	4b40      	ldr	r3, [pc, #256]	; (8000594 <main+0x12c>)
- 8000494:	689a      	ldr	r2, [r3, #8]
+ 8000494:	681a      	ldr	r2, [r3, #0]
  8000496:	4b40      	ldr	r3, [pc, #256]	; (8000598 <main+0x130>)
- 8000498:	689b      	ldr	r3, [r3, #8]
+ 8000498:	681b      	ldr	r3, [r3, #0]
  800049a:	4840      	ldr	r0, [pc, #256]	; (800059c <main+0x134>)
- 800049c:	f890 e002 	ldrb.w	lr, [r0, #2]
+ 800049c:	f890 e000 	ldrb.w	lr, [r0]
  80004a0:	483f      	ldr	r0, [pc, #252]	; (80005a0 <main+0x138>)
- 80004a2:	7886      	ldrb	r6, [r0, #2]
+ 80004a2:	7806      	ldrb	r6, [r0, #0]
  80004a4:	483f      	ldr	r0, [pc, #252]	; (80005a4 <main+0x13c>)
- 80004a6:	7885      	ldrb	r5, [r0, #2]
+ 80004a6:	7805      	ldrb	r5, [r0, #0]
  80004a8:	483f      	ldr	r0, [pc, #252]	; (80005a8 <main+0x140>)
- 80004aa:	7884      	ldrb	r4, [r0, #2]
+ 80004aa:	7804      	ldrb	r4, [r0, #0]
  80004ac:	f107 0084 	add.w	r0, r7, #132	; 0x84
  80004b0:	f8cd e000 	str.w	lr, [sp]
  80004b4:	9601      	str	r6, [sp, #4]
  80004b6:	9502      	str	r5, [sp, #8]
  80004b8:	9403      	str	r4, [sp, #12]
  80004ba:	f000 ffc9 	bl	8001450 <_ZN3PwmC1EP12GPIO_TypeDefmP11TIM_TypeDefhhhb>
-  GPIO M2_A_L(MAL_Port[2], MAL_Pin[2]);
+  GPIO M0_A_L(MAL_Port[0], MAL_Pin[0]);
  80004be:	4b3b      	ldr	r3, [pc, #236]	; (80005ac <main+0x144>)
- 80004c0:	689a      	ldr	r2, [r3, #8]
+ 80004c0:	681a      	ldr	r2, [r3, #0]
  80004c2:	4b3b      	ldr	r3, [pc, #236]	; (80005b0 <main+0x148>)
- 80004c4:	689b      	ldr	r3, [r3, #8]
+ 80004c4:	681b      	ldr	r3, [r3, #0]
  80004c6:	b29b      	uxth	r3, r3
  80004c8:	f107 017c 	add.w	r1, r7, #124	; 0x7c
  80004cc:	4608      	mov	r0, r1
  80004ce:	4611      	mov	r1, r2
  80004d0:	461a      	mov	r2, r3
  80004d2:	f001 f95b 	bl	800178c <_ZN4GPIOC1EP12GPIO_TypeDeft>
-  Pwm M2_B_H(MBH_Port[2], MBH_Pin[2], MBH_Tim[2], MBH_Af_Pin[2], MBH_Af[2], MBH_Ch[2], MBH_nState[2]);
+  Pwm M0_B_H(MBH_Port[0], MBH_Pin[0], MBH_Tim[0], MBH_Af_Pin[0], MBH_Af[0], MBH_Ch[0], MBH_nState[0]);
  80004d6:	4b37      	ldr	r3, [pc, #220]	; (80005b4 <main+0x14c>)
- 80004d8:	6899      	ldr	r1, [r3, #8]
+ 80004d8:	6819      	ldr	r1, [r3, #0]
  80004da:	4b37      	ldr	r3, [pc, #220]	; (80005b8 <main+0x150>)
- 80004dc:	689a      	ldr	r2, [r3, #8]
+ 80004dc:	681a      	ldr	r2, [r3, #0]
  80004de:	4b37      	ldr	r3, [pc, #220]	; (80005bc <main+0x154>)
- 80004e0:	689b      	ldr	r3, [r3, #8]
+ 80004e0:	681b      	ldr	r3, [r3, #0]
  80004e2:	4837      	ldr	r0, [pc, #220]	; (80005c0 <main+0x158>)
- 80004e4:	f890 e002 	ldrb.w	lr, [r0, #2]
+ 80004e4:	f890 e000 	ldrb.w	lr, [r0]
  80004e8:	4836      	ldr	r0, [pc, #216]	; (80005c4 <main+0x15c>)
- 80004ea:	7886      	ldrb	r6, [r0, #2]
+ 80004ea:	7806      	ldrb	r6, [r0, #0]
  80004ec:	4836      	ldr	r0, [pc, #216]	; (80005c8 <main+0x160>)
- 80004ee:	7885      	ldrb	r5, [r0, #2]
+ 80004ee:	7805      	ldrb	r5, [r0, #0]
  80004f0:	4836      	ldr	r0, [pc, #216]	; (80005cc <main+0x164>)
- 80004f2:	7884      	ldrb	r4, [r0, #2]
+ 80004f2:	7804      	ldrb	r4, [r0, #0]
  80004f4:	f107 0074 	add.w	r0, r7, #116	; 0x74
  80004f8:	f8cd e000 	str.w	lr, [sp]
  80004fc:	9601      	str	r6, [sp, #4]
  80004fe:	9502      	str	r5, [sp, #8]
  8000500:	9403      	str	r4, [sp, #12]
  8000502:	f000 ffa5 	bl	8001450 <_ZN3PwmC1EP12GPIO_TypeDefmP11TIM_TypeDefhhhb>
-  GPIO M2_B_L(MBL_Port[2], MBL_Pin[2]);
+  GPIO M0_B_L(MBL_Port[0], MBL_Pin[0]);
  8000506:	4b32      	ldr	r3, [pc, #200]	; (80005d0 <main+0x168>)
- 8000508:	689a      	ldr	r2, [r3, #8]
+ 8000508:	681a      	ldr	r2, [r3, #0]
  800050a:	4b32      	ldr	r3, [pc, #200]	; (80005d4 <main+0x16c>)
- 800050c:	689b      	ldr	r3, [r3, #8]
+ 800050c:	681b      	ldr	r3, [r3, #0]
  800050e:	b29b      	uxth	r3, r3
  8000510:	f107 016c 	add.w	r1, r7, #108	; 0x6c
  8000514:	4608      	mov	r0, r1
  8000516:	4611      	mov	r1, r2
  8000518:	461a      	mov	r2, r3
  800051a:	f001 f937 	bl	800178c <_ZN4GPIOC1EP12GPIO_TypeDeft>
-  Encoder M2_Enc(M_EncA_Port[2], M_EncB_Port[2], M_EncA_Pin[2], M_EncB_Pin[2], M_Enc_Tim[2], M_EncA_Af_Pin[2], M_EncB_Af_Pin[2], M_Enc_Af[2]);
+  Encoder M0_Enc(M_EncA_Port[0], M_EncB_Port[0], M_EncA_Pin[0], M_EncB_Pin[0], M_Enc_Tim[0], M_EncA_Af_Pin[0], M_EncB_Af_Pin[0], M_Enc_Af[0]);
  800051e:	4b2e      	ldr	r3, [pc, #184]	; (80005d8 <main+0x170>)
- 8000520:	6899      	ldr	r1, [r3, #8]
+ 8000520:	6819      	ldr	r1, [r3, #0]
  8000522:	4b2e      	ldr	r3, [pc, #184]	; (80005dc <main+0x174>)
- 8000524:	689a      	ldr	r2, [r3, #8]
+ 8000524:	681a      	ldr	r2, [r3, #0]
  8000526:	4b2e      	ldr	r3, [pc, #184]	; (80005e0 <main+0x178>)
- 8000528:	689b      	ldr	r3, [r3, #8]
+ 8000528:	681b      	ldr	r3, [r3, #0]
  800052a:	482e      	ldr	r0, [pc, #184]	; (80005e4 <main+0x17c>)
- 800052c:	f8d0 c008 	ldr.w	ip, [r0, #8]
+ 800052c:	f8d0 c000 	ldr.w	ip, [r0]
  8000530:	482d      	ldr	r0, [pc, #180]	; (80005e8 <main+0x180>)
- 8000532:	f8d0 e008 	ldr.w	lr, [r0, #8]
+ 8000532:	f8d0 e000 	ldr.w	lr, [r0]
  8000536:	482d      	ldr	r0, [pc, #180]	; (80005ec <main+0x184>)
- 8000538:	7886      	ldrb	r6, [r0, #2]
+ 8000538:	7806      	ldrb	r6, [r0, #0]
  800053a:	482d      	ldr	r0, [pc, #180]	; (80005f0 <main+0x188>)
- 800053c:	7885      	ldrb	r5, [r0, #2]
+ 800053c:	7805      	ldrb	r5, [r0, #0]
  800053e:	482d      	ldr	r0, [pc, #180]	; (80005f4 <main+0x18c>)
- 8000540:	7884      	ldrb	r4, [r0, #2]
+ 8000540:	7804      	ldrb	r4, [r0, #0]
  8000542:	f107 0068 	add.w	r0, r7, #104	; 0x68
  8000546:	f8cd c000 	str.w	ip, [sp]
  800054a:	f8cd e004 	str.w	lr, [sp, #4]
@@ -774,7 +774,7 @@ int main(void)
  8000550:	9503      	str	r5, [sp, #12]
  8000552:	9404      	str	r4, [sp, #16]
  8000554:	f001 f994 	bl	8001880 <_ZN7EncoderC1EP12GPIO_TypeDefS1_mmP11TIM_TypeDefhhh>
-  Motor M2(&M2_A_H, &M2_A_L, &M2_B_H, &M2_B_L, &M2_Enc);
+  Motor M0(&M0_A_H, &M0_A_L, &M0_B_H, &M0_B_L, &M0_Enc);
  8000558:	1d38      	adds	r0, r7, #4
  800055a:	f107 0184 	add.w	r1, r7, #132	; 0x84
  800055e:	f107 027c 	add.w	r2, r7, #124	; 0x7c
@@ -787,7 +787,7 @@ int main(void)
   Delay(100);
  8000576:	2064      	movs	r0, #100	; 0x64
  8000578:	f000 f840 	bl	80005fc <_Z5Delaym>
-  M2.Answer(-400);
+  M0.Answer(-400);
  800057c:	1d3b      	adds	r3, r7, #4
  800057e:	4618      	mov	r0, r3
  8000580:	491d      	ldr	r1, [pc, #116]	; (80005f8 <main+0x190>)

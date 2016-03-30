@@ -21,14 +21,14 @@ int main(void)
   int16_t i = -1000;
   SysTick_Config(SystemCoreClock / 1000);
   Delay(10);
-  Pwm M2_A_H(MAH_Port[2], MAH_Pin[2], MAH_Tim[2], MAH_Af_Pin[2], MAH_Af[2], MAH_Ch[2], MAH_nState[2]);
-  GPIO M2_A_L(MAL_Port[2], MAL_Pin[2]);
-  Pwm M2_B_H(MBH_Port[2], MBH_Pin[2], MBH_Tim[2], MBH_Af_Pin[2], MBH_Af[2], MBH_Ch[2], MBH_nState[2]);
-  GPIO M2_B_L(MBL_Port[2], MBL_Pin[2]);
-  Encoder M2_Enc(M_EncA_Port[2], M_EncB_Port[2], M_EncA_Pin[2], M_EncB_Pin[2], M_Enc_Tim[2], M_EncA_Af_Pin[2], M_EncB_Af_Pin[2], M_Enc_Af[2]);
-  Motor M2(&M2_A_H, &M2_A_L, &M2_B_H, &M2_B_L, &M2_Enc);
+  Pwm M0_A_H(MAH_Port[0], MAH_Pin[0], MAH_Tim[0], MAH_Af_Pin[0], MAH_Af[0], MAH_Ch[0], MAH_nState[0]);
+  GPIO M0_A_L(MAL_Port[0], MAL_Pin[0]);
+  Pwm M0_B_H(MBH_Port[0], MBH_Pin[0], MBH_Tim[0], MBH_Af_Pin[0], MBH_Af[0], MBH_Ch[0], MBH_nState[0]);
+  GPIO M0_B_L(MBL_Port[0], MBL_Pin[0]);
+  Encoder M0_Enc(M_EncA_Port[0], M_EncB_Port[0], M_EncA_Pin[0], M_EncB_Pin[0], M_Enc_Tim[0], M_EncA_Af_Pin[0], M_EncB_Af_Pin[0], M_Enc_Af[0]);
+  Motor M0(&M0_A_H, &M0_A_L, &M0_B_H, &M0_B_L, &M0_Enc);
   Delay(100);
-  M2.Answer(-400);
+  M0.Answer(-400);
   while (1)
   {
 
